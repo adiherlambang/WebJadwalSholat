@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Jadwal Sholat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' type='text/css' href='/css/bootstrap/bootstrap.min.css'>
+  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+  <script src='/js/bootstrap/bootstrap.min.js'></script>
+  <script src="/js/jquery-3.6.4.min.js"></script>
+  <script>
+		$(document).ready(function() {
+			// set the interval to 5 seconds
+			setInterval(function() {
+				// reload the current page
+				location.reload();
+			}, 50000); // 5000 milliseconds = 5 seconds
+		});
+	</script>
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <div class="container-fluid"">
+            <img src="/public/assets/title.png" class="img-fluid w-100" alt="Responsive image">
+    </div>
+    <!-- <button onclick="getWaktu()">Click me</button> -->
+    <div class="container-fluid text-center text-white">
+      <div class="section row">
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Imsak</p>
+          <p class="waktu"><%= data1.data.jadwal.imsak %></p>
+        </div>
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Subuh</p>
+          <p class="waktu"><%= data1.data.jadwal.subuh %></p>
+        </div>
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Dhuha</p>
+          <p class="waktu"><%= data1.data.jadwal.subuh %></p>
+        </div>
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Dzuhur</p>
+          <p class="waktu"><%= data1.data.jadwal.dzuhur %></p>
+        </div>
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Ashar</p>
+          <p class="waktu"><%= data1.data.jadwal.ashar %></p>
+        </div>
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Maghrib</p>
+          <p class="waktu"><%= data1.data.jadwal.maghrib %></p>
+        </div>
+        <div class="col border border-dark border-3 rounded-4 bg-success">
+          <p class="text-black">Isya</p>
+          <p class="waktu"><%= data1.data.jadwal.isya %></p>
+        </div>
+      </div>
+    </div>
+    <div style="background-color: yellow;">
+      <marquee direction="left">
+        <p class="runningText" id="runningText"><%= data2.runningText %></p>
+      </marquee>
+    </div>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+          aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+          aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+          aria-label="Slide 6"></button>
+      </div>
+      <div class="carousel-inner">
+        <% data3.file.forEach((item, index) => { %>
+          <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+            <img src="<%= item.filepath %>" class="d-block" alt="...">
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

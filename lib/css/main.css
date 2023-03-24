@@ -1,0 +1,83 @@
+@media screen and (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    p {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 100%;
+    }
+    
+    p .waktu {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 30%;
+    }
+
+    img {
+        width: 1048px;
+        height: 590px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    div marquee p{
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 3048px) {
+    /* Styles for screens between 768px and 1024px wide */
+    div p {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 27px;
+    }
+    
+    div p .waktu {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+    div marquee p{
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    img {
+        width: 1048px;
+        height: 700px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* @media screen and (min-resolution: 2dppx) {
+    p {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 17px;
+    }
+    
+    p .waktu {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 70px;
+    }
+
+    div marquee p{
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    img {
+        width: 1048px;
+        height: 700px;
+        display: block;
+        margin: 0 auto;
+    }
+} */
+

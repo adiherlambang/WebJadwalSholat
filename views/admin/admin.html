@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Admin | Page</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' href='/css/admin.css'>
+  <link rel='stylesheet' type='text/css' href='/css/bootstrap/bootstrap.min.css'>
+  <script src='/js/bootstrap/bootstrap.min.js'></script>
+  <script src="/js/jquery-3.6.4.min.js"></script>
+  <script src="/js/jquery.twbsPagination.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <div class="sidenav-header  align-items-center">
+            <a class="navbar-brand" href="javascript:void(0)">
+              <img src="/public/assets/kubah.png" class="navbar-brand-img" alt="...">
+            </a>
+          </div>
+          <!-- <ul class="nav flex-column nav-pills nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                    <span class="fas fa-home me-2"></span>
+                    Dashboard
+                    </a>
+                </li>
+                </ul>
+            </div> -->
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+              aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+        <div class="container-fluid bg-light">
+          <div class="row">
+            <h1>Admin Page | Dashboard</h1>
+          </div>
+          <div class="row">
+            <div class="container-fluid bg-light">
+              <div class="card">
+                <div class="card-body">
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Runnnig Text</label>
+                    <input type="text" class="form-control" id="RunningTextCurrent" value="<%= data1.runningText %>"
+                      disabled>
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Changes Running Text</label>
+                    <input type="text" class="form-control" id="changeInput" placeholder="Input Running Text">
+                  </div>
+                  <button type="button" class="btn btn-primary" id="changeRunningText">Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container-fluid bg-light">
+              <div class="card">
+                <div class="card-body">
+                  <div class="mb-3">
+                    <div class="row">
+                      <label class="form-label">Gallery
+                      </label>
+                      <ButtonGroup>
+                        <button class="btn btn-success view">View</button>
+                        <button class="btn btn-primary upload">Upload</button>
+                        <button class="btn btn-danger delete">Delete</button>
+                      </ButtonGroup>
+                      <% data2.file.forEach(function(item, index) { %>
+                      <div class="card" style="width: 18rem;">
+                        <img src="<%= item.filepath %>" class="card-img-top" alt="<%= item.filename %>">
+                        <div class="card-body">
+                          <p class="card-text text-center"><%= item.filename %></p>
+                          <a href="#" id="<%= index %>" class="btn btn-primary changesImg">Change</a>
+                        </div>
+                      </div>
+                      <% }) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </main>
+    <!-- The Modal changes media slide -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Files in Directory</h4>
+            <button type="button" class="close" data-dismiss="myModal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="list-group" id="fileList"></div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <div class="text-center" id="pagination"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- The Modal upload new file -->
+    <div class="modal fade" id="uploadFIle">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Upload new file</h4>
+            <button type="button" class="close" data-dismiss="myModal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form id="uploadForm" enctype="multipart/form-data">
+              <input type="file" name="fileToUpload" id="fileToUpload">
+              <input type="submit" class="btn btn-primary" value="Upload File" name="submit">
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                aria-valuemax="100">0%</div>
+            </div>
+            <div class="alert alert-success" style="display: none;">File uploaded successfully!</div>
+            <div class="alert alert-danger" style="display: none;">There was an error uploading the file.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src='/js/admin.js'></script>
+
+</html>

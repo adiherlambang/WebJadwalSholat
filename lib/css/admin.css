@@ -1,0 +1,11 @@
+.sidebar {
+    height: 100vh;
+}
+
+.row .container-fluid .card{
+    margin-top: 15px;
+}
+
+.row .container-fluid .card .card-body .mb-3 .row .card{
+    margin: 20px;
+}
